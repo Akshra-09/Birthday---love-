@@ -1,123 +1,180 @@
-# Birthday---love-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday My Love</title>
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at center, #fff0f5 0%, #ffe4e1 100%);
-      overflow: hidden;
-    }
-    .welcome-screen, .slideshow {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: black;
+      color: white;
       text-align: center;
-      padding: 20px;
     }
-    .welcome-screen {
-      background: linear-gradient(to top left, #ffb6c1, #ffe4e1);
+    .screen {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 30px;
     }
-    .welcome-screen h1 {
-      font-size: 2.8rem;
-      color: #fff;
-      text-shadow: 2px 2px 4px #ff69b4;
+    #welcome {
+      display: flex;
+      background: url('bg-placeholder.jpg') no-repeat center center/cover;
     }
-    .start-btn {
-      padding: 14px 30px;
-      margin-top: 30px;
-      font-size: 1.3rem;
-      background-color: #ff69b4;
+    #poemPage {
+      background-color: #111;
+    }
+    h1, p {
+      margin: 10px 0;
+    }
+    .button {
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background: #ff3366;
       color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-    .start-btn:hover {
-      background-color: #ff1493;
-      transform: scale(1.05);
+      margin-top: 20px;
     }
     .slideshow {
-      display: none;
-      background-color: #fff0f5;
-      flex-direction: column;
+      padding: 40px 20px;
     }
     .slide {
-      display: none;
-      padding: 20px;
+      margin-bottom: 50px;
+      animation: fadeIn 2s ease-in-out;
     }
-    .slide.active {
-      display: block;
-    }
-    .slide img {
+    .slide img, .slide video {
       max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
     }
-    .slide p {
-      font-size: 1.4rem;
-      color: #444;
-      margin-top: 15px;
-      background-color: #fff;
-      padding: 12px;
-      border-radius: 15px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .poetry {
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-style: italic;
     }
-    .next-btn {
-      margin-top: 25px;
-      padding: 12px 28px;
-      font-size: 1rem;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
+    audio {
+      display: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="welcome-screen">
-    <h1>Happy Birthday My Love 💗🌎🫀</h1>
-    <button class="start-btn" onclick="startSlideshow()">Tap to Begin 💫</button>
-  </div>  <div class="slideshow">
-    <div class="slide active">
-      <img src="your-photo-1.jpg" alt="Photo 1" />
-      <p>From the first smile to the first kiss 😚💗 — it all began here...</p>
-    </div>
-    <div class="slide">
-      <img src="your-photo-2.jpg" alt="Photo 2" />
-      <p>Every moment with you has been a beautiful memory 🧿🫂</p>
-    </div>
-    <div class="slide">
-      <img src="your-photo-3.jpg" alt="Photo 3" />
-      <p>Through ups and downs, we stood strong together 💕🌈</p>
-    </div>
-    <div class="slide">
-      <img src="your-photo-4.jpg" alt="Photo 4" />
-      <p>Here’s to 4 magical years and a forever to go 🌹🫶</p>
-    </div>
-    <button class="next-btn" onclick="nextSlide()">Next ➡️</button>
-  </div>  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
 
-    function startSlideshow() {
-      document.querySelector('.welcome-screen').style.display = 'none';
-      document.querySelector('.slideshow').style.display = 'flex';
-    }
+<!-- Welcome Screen -->
+<div class="screen" id="welcome">
+  <h1>Happy Birthday My Love 💗</h1>
+  <p>Tap to begin your memory journey 🫂❤️</p>
+  <button class="button" onclick="showPoem()">Let's Begin 🥹</button>
+</div>
 
-    function nextSlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-  </script></body>
+<!-- Poem Page -->
+<div class="screen" id="poemPage">
+  <h1>Happy Birthday my love!!!❤️😚</h1>
+  <p>You grow like a river, calm yet strong,<br>
+     Carving dreams, singing life's song.<br>
+     You shine like the stars in the endless sky,<br>
+     Lighting my world, lifting me high.</p>
+  <p>I hope we stay together like roots and tree,<br>
+     Bound by love, wild and free.<br>
+     Today and forever, come what may,<br>
+     I choose you more with every day.</p>
+  <p><strong>Happy Birthday My Forever Home 🫀🧿</strong></p>
+  <button class="button" onclick="startSlideshow()">Start Our 4-Year Journey</button>
+</div>
+
+<!-- Slideshow Page -->
+<div class="screen slideshow" id="slideshow">
+  <audio id="bg-music" autoplay loop>
+    <source src="ye-tune-kya-kiya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Photo Slide 1 -->
+  <div class="slide">
+    <img src="photo1.jpg" alt="Memory 1">
+    <p class="poetry">"Year 1: From friendship’s first spark, you lit up my dark🎀."</p>
+  </div>
+  <!-- Photo Slide 2 -->
+  <div class="slide">
+    <img src="photo2.jpg" alt="Memory 2">
+    <p class="poetry">"Year 2: Laughter, late nights, and dreams we drew 🌝🫂."</p>
+  </div>
+  <!-- Photo Slide 3 -->
+  <div class="slide">
+    <img src="photo3.jpg" alt="Memory 3">
+    <p class="poetry">"Year 3: Weathered storms, held each other true.🫂"</p>
+  </div>
+  <!-- Photo Slide 4 -->
+  <div class="slide">
+    <img src="photo4.jpg" alt="Memory 4">
+    <p class="poetry">"Year 4: From smiles to memories that feel brand new.❤️"</p>
+  </div>
+  <!-- Photo Slide 5 -->
+  <div class="slide">
+    <img src="photo5.jpg" alt="Memory 5">
+    <p class="poetry">"New beginnings, side by side, together we thrive. 🤝🏻🫂"</p>
+  </div>
+  <!-- Photo Slide 6 -->
+  <div class="slide">
+    <img src="photo6.jpg" alt="Memory 6">
+    <p class="poetry">"In every laugh, in every tear, you've been my guiding light.😚🧿"</p>
+  </div>
+  <!-- Photo Slide 7 -->
+  <div class="slide">
+    <img src="photo7.jpg" alt="Memory 7">
+    <p class="poetry">"No distance too far, no hurdle too tall, your love conquers it all.🥹💗"</p>
+  </div>
+  <!-- Photo Slide 8 -->
+  <div class="slide">
+    <img src="photo8.jpg" alt="Memory 8">
+    <p class="poetry">"With you, the world feels just right, you’re my moonlight. 🌝🌎"</p>
+  </div>
+  <!-- Photo Slide 9 -->
+  <div class="slide">
+    <img src="photo9.jpg" alt="Memory 9">
+    <p class="poetry">"Through thick and thin, I’ll always stand by you 🫀🫂."</p>
+  </div>
+  <!-- Photo Slide 10 -->
+  <div class="slide">
+    <img src="photo10.jpg" alt="Memory 10">
+    <p class="poetry">"Here's to forever, one moment at a time 🌎🫀"</p>
+  </div>
+
+  <!-- Video Slide -->
+  <div class="slide">
+    <video controls>
+      <source src="video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="poetry">"Our beautiful journey, captured in time, every moment sublime."</p>
+  </div>
+</div>
+
+<script>
+  function showPoem() {
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('poemPage').style.display = 'flex';
+  }
+
+  function startSlideshow() {
+    document.getElementById('poemPage').style.display = 'none';
+    document.getElementById('slideshow').style.display = 'block';
+    document.getElementById('bg-music').play();
+  }
+
+  // Show welcome screen on load
+  window.onload = function() {
+    document.getElementById('welcome').style.display = 'flex';
+  }
+</script>
+
+</body>
 </html>
