@@ -151,14 +151,14 @@
   </div>
 
   <!-- Video Slide -->
-  <div class="slide">
-    <video controls>
-      <source src="video1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p class="poetry">"Our beautiful journey, captured in time, every moment sublime."</p>
-  </div>
+<div class="slide">
+  <video controls width="100%" height="auto">
+    <source src="video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="poetry">"Our beautiful journey, captured in time, every moment sublime."</p>
 </div>
+
 
 <script>
   function showPoem() {
@@ -180,6 +180,11 @@
       slides[currentSlide].style.display = 'none';
       currentSlide = (currentSlide + 1) % totalSlides;
       slides[currentSlide].style.display = 'block';
+    }
+    if (slides[currentSlide].querySelector('video')) {
+  document.getElementById('bg-music').pause(); // Pause music on video slide
+} else {
+  document.getElementById('bg-music').play(); // Resume otherwise
     }
 
     // Start showing the first slide and set interval to change slides
