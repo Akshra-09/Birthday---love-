@@ -102,7 +102,7 @@
   <!-- Photo Slide 1 -->
   <div class="slide">
     <img src="photoo1.jpg" alt="Memory 1">
-    <p class="poetry">"Year 1: From friendship’s first spark, you lit up my dark."</p>
+    <p class="poetry">"Year 1: From friendship’s first spark, you lit up my dark.🥹🤌🏻"</p>
   </div>
   <!-- Photo Slide 2 -->
   <div class="slide">
