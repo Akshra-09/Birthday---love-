@@ -156,7 +156,7 @@
     <source src="video1.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <p class="poetry">"Our beautiful journey, captured in time, every moment sublime."</p>
+  <p class="poetry">"Our beautiful journey, captured in time, every moment sublime🧿🤞🏻❤️."</p>
 </div>
 
 
